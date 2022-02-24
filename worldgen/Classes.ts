@@ -1,7 +1,7 @@
-import seedrandom from "../SeedRandom"
+//import seedrandom from "../SeedRandom"
 
 // Imports
-let rng = seedrandom()
+//let rng = seedrandom()
 // Properties
 // Relationship score to be considered allied
 const AlliedScore = 50
@@ -24,16 +24,16 @@ const firstName : Array<string> = ['Chaeryrr','Bertale','Kalest','Sahack','Skela
 
 // Get random values functions
 function ra(array : Array<any>) : any {
-    return array[Math.floor(rng() * array.length)];
+    return array[Math.floor(Math.random() * array.length)];
 };
 
 function r(min : number, max : number) : number {
-    return Math.floor(rng() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 };
 
 // Returns a float (rounded to specified decimal place)
 function rf(min : number, max : number, numberOfDecimal : number = 2 ) : number {
-    return Math.floor(rng() * (max - min - 1)) + min + Number(rng().toFixed(numberOfDecimal));
+    return Math.floor(Math.random() * (max - min - 1)) + min + Number(Math.random().toFixed(numberOfDecimal));
 };
 
 // Variables for storing counts of objects (used to assign IDs)
@@ -52,6 +52,8 @@ let personCount : number = 0;
 let professionCount : number = 0;
 let roadCount : number = 0;
 let armyCount : number = 0; 
+let personinteractionCount : number = 0;
+let personeventCount : number = 0;
 
 // Generates a Government, can automatically generate a random government if none is provided (still requires name)
 export class Government
@@ -440,7 +442,9 @@ export class Town extends Location
 }
 
 // Roads store the connections between towns and describe condition and danger levels
-// 
+// Must have at least two towns in the Array provided
+// If no name provided, it will use the first two towns in the array plus
+// e.g TownName1 TownName2 Road
 export class Road extends Location
 {
 	
@@ -456,7 +460,7 @@ export class Road extends Location
 		this.RoadId = roadCount;
 		this.Connections = Connections_;
 		if (RoadName_ == null) {
-			
+			this.RoadName = Connections_[0].Name + " " + Connections_[1].Name + " Road" 
 		}
 		 else {
 			this.RoadName = RoadName_;
@@ -574,23 +578,46 @@ export class Person
 	}
 }
 
+// Stores professions, requirements
 export class Profession
 {
 	public ProfessionId: number;
 	public Name: string;
 	public EducationRequirement: number;
+	public MagicRequirement : number;
 	public Pay: string;
 	public MaxPerTown: number;
 	public MaxPerCountry: number;
 
-	constructor (Name_: string,EducationRequirement_: number,Pay_: string,MaxPerTown_: number,MaxPerCountry_: number)
+	constructor (Name_: string,EducationRequirement_: number, MagicRequirement_: number,Pay_: string,MaxPerTown_: number,MaxPerCountry_: number)
 	{
 		this.ProfessionId = professionCount;
 		this.Name = Name_;
 		this.EducationRequirement = EducationRequirement_;
+		this.MagicRequirement = MagicRequirement_;
 		this.Pay = Pay_;
 		this.MaxPerTown = MaxPerTown_;
 		this.MaxPerCountry = MaxPerCountry_;
 		professionCount++;
+	}
+}
+
+// Stores the relationship of one person with another, as well as showing 
+// changes in relationship (can be stored in a PersonEvent object)
+export class PersonInteraction
+{
+	public InteractionId: number;
+	public Person: Person;
+	public OtherPerson: Person;
+	public Relationship: number;
+	public Note : string;
+
+	constructor (Person_: Person,OtherPerson_: Person,Relationship_: number, Note_ : string)
+	{
+		this.InteractionId = personinteractionCount;
+		this.Person = Person_;
+		this.OtherPerson = OtherPerson_;
+		this.Relationship = Relationship_;
+		personinteractionCount++;
 	}
 }
