@@ -1,16 +1,28 @@
-
 {
-    "name": "mysql-express-mysql",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-      "start": "node index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "engines": {
-      "node": "6.5.0"
-    },
-    "dependencies": {      
-      "express": "~4.15.2"
-    }
-  }
+  "name": "worldgen",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.5.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "path": "^0.12.7"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ixxith/World-Simulation.git"
+  },
+  "author": "Ian Cole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ixxith/World-Simulation/issues"
+  },
+  "homepage": "https://github.com/Ixxith/World-Simulation#readme",
+  "description": ""
+}
