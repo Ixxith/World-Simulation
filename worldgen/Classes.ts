@@ -166,7 +166,7 @@ export class Country
 		return enemies
 	}
 
-	constructor (Name_: string=ra(countryName),Size_: number,Landlocked_: boolean = ra(truefalseArray),Government_?: Government,Innovation_: number = r(1,100),Capital_?: Town)
+	constructor (Name_: string=ra(countryName),Size_: number=r(1,10),Landlocked_: boolean = ra(truefalseArray),Government_?: Government,Innovation_: number = r(1,100),Capital_?: Town)
 	{
 		this.CountryId = countryCount;
 		this.Name = Name_;
