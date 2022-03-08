@@ -52,6 +52,8 @@ let personCount : number = 0;
 let professionCount : number = 0;
 let roadCount : number = 0;
 let armyCount : number = 0; 
+let battleCount : number = 0; 
+let battleparticipantCount : number = 0; 
 let personinteractionCount : number = 0;
 let personeventCount : number = 0;
 
@@ -471,6 +473,7 @@ export class Road extends Location
 	}
 }
 
+// Army object stores soldiers as a cohesive object (used in battles) 
 export class Army
 {
 	public ArmyId: number;
@@ -479,6 +482,7 @@ export class Army
 	public Food: number;
 	public Location: Location;
 	public Soldiers: Array<Person>;
+	public Battles: Array<Battle>;
 
 	public getSoldier(soldierId : Number) : Person {
 		
@@ -499,6 +503,14 @@ export class Army
 
 	}
 
+	public move(location : Location) {
+		this.Location = location;
+		this.General.move(location);
+		for (const soldier of this.Soldiers) {
+           soldier.move(location);
+        };	
+	}
+
 	constructor (Country_: Country,General_: Person,Food_: number,Location_: Location)
 	{
 		this.ArmyId = armyCount;
@@ -507,7 +519,40 @@ export class Army
 		this.Food = Food_;
 		this.Location = Location_;
 		this.Soldiers = [];
+		this.Battles = [];
 		armyCount++;
+	}
+}
+
+// Records a battle between two armies
+export class Battle
+{
+	public BattleId: number;
+	public Location: Location;
+	public Participants: Array<BattleParticipant>;
+
+	constructor (Location_: Location)
+	{
+		this.BattleId = battleCount;
+		this.Location = Location_;
+		this.Participants = [];
+		battleCount++;
+	}
+}
+
+// Records an army participating in a battle and the casualties that occured. 
+export class BattleParticipant
+{
+	public PariticipantId: number;
+	public Army: Army;	
+	public Casulties: number;
+
+	constructor (Army_: Army,Battle_: Battle,Casulties_: number)
+	{
+		this.PariticipantId = battleparticipantCount;
+		this.Army = Army_;
+		this.Casulties = Casulties_;
+		Battle_.Participants.push(this);
 	}
 }
 
@@ -619,5 +664,24 @@ export class PersonInteraction
 		this.OtherPerson = OtherPerson_;
 		this.Relationship = Relationship_;
 		personinteractionCount++;
+	}
+}
+
+
+// Records events that happen between multiple people. Relationship changes can be saved here via PersonInteraction as well
+export class PersonEvent
+{
+	public EventId: number;
+	public Description: string;
+	public Involved: Array<Person>;
+	public Reactions: Array<PersonInteraction>;
+
+	constructor (Description_: string, Involved_: Array<Person>, Reactions_:Array<PersonInteraction>)
+	{
+		this.EventId = personeventCount;
+		this.Description = Description_;
+		this.Involved = Involved_;
+		this.Reactions = Reactions_;
+		personeventCount++;
 	}
 }
