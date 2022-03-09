@@ -67,9 +67,14 @@ export class Government
 	public Power: number;
 	public Funds: number;
     public Policies: Array<Policy>;
-    public Country: Country
+    public CountryId: number
 
-	constructor (Name_: string,Type_: string = ra(governmentTypes),Cohesion_: number = r(1,100),Power_: number = r(1,100),Funds_: number = r(10000,100000), Country_? : Country)
+	public get Key(): String
+	{   
+       return this.Name;
+	}
+
+	constructor (Name_: string,Type_: string = ra(governmentTypes),Cohesion_: number = r(1,100),Power_: number = r(1,100),Funds_: number = r(10000,100000), CountryId_? : number)
 	{
         
 		this.GovernmentId = governementCount;
@@ -79,7 +84,7 @@ export class Government
 		this.Power = Power_;
 		this.Funds = Funds_;
         this.Policies = [];
-        this.Country = Country_;
+        this.CountryId = CountryId_;
         governementCount++;
 	}
 }
@@ -93,6 +98,12 @@ export class Policy
 	public Canceled: Date;
 	public Description: string;
 
+	public get Key(): String
+	{   
+       return this.PolicyId.toString();
+	}
+
+	
 	constructor (Government_: Government, Description_: string, Enacted_: Date = new Date(), Canceled_: Date)
 	{
 		this.PolicyId = policyCount;
@@ -120,6 +131,11 @@ export class Country
 	private CapitalId: number;
     public Towns: Array<Town>;
 	public CountryInteractions: Array<CountryInteraction>;
+
+	public get Key(): String
+	{   
+       return this.Name;
+	}
 
     public get Capital(): Town
 	{   
@@ -177,14 +193,15 @@ export class Country
         if (Government_ == null) {
             let gType : string = ra(governmentTypes)
             this.Government = new Government(Name_ + " " + gType, gType) 
-            this.Government.Country = this;           
+            this.Government.CountryId = this.CountryId;           
         }
         else {
             this.Government = Government_;
         };
 		
 		this.Innovation = Innovation_;
-		this.CapitalId = Capital_.TownId;
+		if (Capital_ != null) {
+		this.CapitalId = Capital_.TownId; };
         this.Towns = [];
 		this.CountryInteractions = [];
         countryCount++;
@@ -201,6 +218,11 @@ export class CountryInteraction
 	public Status: string;
 	public Immigration: string;
 	public Trade: string;
+
+	public get Key(): String
+	{   
+       return this.InteractionId.toString();
+	}
 
 	constructor (Country_: Country,OtherCountry_: Country, Relationship_ : number=r(-100,100), Status_: string="At Peace",Immigration_: string="Allowed",Trade_: string="Allowed")
 	{
@@ -223,6 +245,11 @@ export class Biome
 	public BiomeId: number;
 	public Name: string;
 
+	public get Key(): String
+	{   
+       return this.Name;
+	}
+
 	constructor (Name_: string)
 	{
 		this.BiomeId = biomeCount;
@@ -244,6 +271,11 @@ export class Race
 	public MagicMultiplier: number;
 	public RaceInteractions: Array<RaceInteraction>
 	public BiomePreferences: Array<BiomePreference>
+
+	public get Key(): String
+	{   
+       return this.Name;
+	}
 
 	public getRaceRelationship(raceId : number) : number {
 		for (const raceInteraction of this.RaceInteractions) {
@@ -328,6 +360,11 @@ export class RaceInteraction
 	public Relationship: number;
 	public Note: string;
 
+	public get Key(): String
+	{   
+       return this.InteractionId.toString();
+	}
+
 	constructor (Race_: Race,OtherRace_: Race, Relationship_: number = r(-100,100), Note_?: string)
 	{
 		this.InteractionId = raceinteractionCount;
@@ -348,6 +385,12 @@ export class RaceEvent
 	public Involved: Array<Race>;
 	public Effects: Array<RaceInteraction>
 
+	public get Key(): String
+	{   
+       return this.EventId.toString();
+	}
+
+
 	constructor (Event_: string, Involved_ : Array<Race>, Effects_?: Array<RaceInteraction>)
 	{
 		this.EventId = raceeventCount;
@@ -365,6 +408,12 @@ export class BiomePreference
 	public Race: Race;
 	public Preference: number;
 
+	public get Key(): String
+	{   
+       return this.PreferenceId.toString();
+	}
+
+
 	constructor (Biome_: Biome,Race_: Race,Preference_: number)
 	{
 		this.PreferenceId = biomepreferenceCount;
@@ -380,10 +429,31 @@ export class BiomePreference
 export class Location
 {
 	public LocationId: number;
+	public Occupants: Array<Person>
+
+	public getPerson(personId : Number) : Person {
+		
+		for (const person of this.Occupants) {
+            if (person.PersonId == personId) {
+                return person;
+            };
+        };		
+
+		return null;
+	}
+
+	public removePerson(personId : Number) {
+		
+		this.Occupants = this.Occupants.filter(function(person){ 
+            return person.PersonId != personId; 
+        });
+
+	}
 
 	constructor ()
 	{
 		this.LocationId = locationCount;
+		this.Occupants = [];
         locationCount++;
 	}
 }
@@ -395,7 +465,7 @@ export class Town extends Location
 {
 
 	public TownId: number;
-	public Country: Country;
+	public CountryId: number;
 	public Name: string;
 	public Food: number;
 	public Resources: number;
@@ -406,6 +476,11 @@ export class Town extends Location
 	public Education: number;
 	public Funds: number;
 	public Goods: number;
+
+	public get Key(): String
+	{   
+       return this.Name;
+	}
 
 	public getFromGarrison(soldierId : Number) : Person {
 		
@@ -426,21 +501,22 @@ export class Town extends Location
 
 	}
 
-	constructor (Country_: Country, Biome_: Biome, Military_?: Array<Person>, Name_: string = ra(townName) ,Food_: number=r(1000,2000),Resources_: number=r(500,2000),Crime_: number=r(1,40), Corruption_: number=r(1,30), Education_: number=r(1,5),Funds_: number=r(1000,5000),Goods_: number=r(100,500))
+	constructor (Country_: Country, Biome_: Biome, Military_: Array<Person>=[], Name_: string = ra(townName) ,Food_: number=r(1000,2000),Resources_: number=r(500,2000),Crime_: number=r(1,40), Corruption_: number=r(1,30), Education_: number=r(1,5),Funds_: number=r(1000,5000),Goods_: number=r(100,500))
 	{
         super();
 		this.TownId = townCount;
-		this.Country = Country_;
+		this.CountryId = Country_.CountryId;		
 		this.Name = Name_;
 		this.Food = Food_;
 		this.Resources = Resources_;
 		this.Crime = Crime_;
 		this.Corruption = Corruption_;
-		this.Biome = Biome_;
+		this.Biome = Biome_;		
 		this.Military = Military_;
 		this.Education = Education_;
 		this.Funds = Funds_;
 		this.Goods = Goods_;
+		Country_.Towns.push(this);
         townCount++;
 	}
 }
@@ -453,10 +529,15 @@ export class Road extends Location
 {
 	
 	public RoadId: number;
-	public RoadName: string;
+	public Name: string;
 	public Connections : Array<Town>;
 	public Danger: number;
 	public Condition: number;
+
+	public get Key(): String
+	{   
+       return this.Name;
+	}
 
 	constructor (Connections_ : Array<Town>,RoadName_?: string,Danger_: number=r(1,10),Condition_: number=r(1,10))
 	{
@@ -464,10 +545,10 @@ export class Road extends Location
 		this.RoadId = roadCount;
 		this.Connections = Connections_;
 		if (RoadName_ == null) {
-			this.RoadName = Connections_[0].Name + " " + Connections_[1].Name + " Road" 
+			this.Name = Connections_[0].Name + " " + Connections_[1].Name + " Road" 
 		}
 		 else {
-			this.RoadName = RoadName_;
+			this.Name = RoadName_;
 		}
 		this.Danger = Danger_;
 		this.Condition = Condition_;
@@ -485,7 +566,11 @@ export class Army
 	public Location: Location;
 	public Soldiers: Array<Person>;
 	public Battles: Array<Battle>;
-
+	
+	public get Key(): String
+	{   
+       return `Army led by ${this.General.Key}`;
+	}
 	public getSoldier(soldierId : Number) : Person {
 		
 		for (const soldier of this.Soldiers) {
@@ -505,11 +590,11 @@ export class Army
 
 	}
 
-	public move(location : Location) {
+	public move(location : Location, locationDict: {[key : number] : Location}) {
 		this.Location = location;
-		this.General.move(location);
+		this.General.move(location, locationDict);
 		for (const soldier of this.Soldiers) {
-           soldier.move(location);
+           soldier.move(location, locationDict);
         };	
 	}
 
@@ -533,6 +618,11 @@ export class Battle
 	public Location: Location;
 	public Participants: Array<BattleParticipant>;
 
+	public get Key(): String
+	{   
+       return `Battle ${this.BattleId}`;
+	}
+
 	constructor (Location_: Location)
 	{
 		this.BattleId = battleCount;
@@ -549,6 +639,11 @@ export class BattleParticipant
 	public Army: Army;	
 	public Casulties: number;
 
+	public get Key(): String
+	{   
+       return `PariticipantId ${this.PariticipantId}`;
+	}
+
 	constructor (Army_: Army,Battle_: Battle,Casulties_: number)
 	{
 		this.PariticipantId = battleparticipantCount;
@@ -562,8 +657,8 @@ export class BattleParticipant
 export class Person
 {
 	public PersonId: number;
-	public Nationality: Country;
-	public Location: Location;
+	public NationalityId: number;
+	public LocationId: number;
 	public Race: Race;
 	public Wealth: number;
 	public EducationLevel: number;
@@ -579,15 +674,24 @@ export class Person
 	public FirstName: string;
 	public LastName: string;
 
-	public move(location:Location) {
-		this.Location = location
+	public get Key(): String
+	{   
+       return `${this.FirstName} ${this.LastName}`;
+	}
+
+	public move(location:Location, locationDict: {[key : number] : Location}) {
+		let previousLocation = locationDict[this.LocationId]
+		previousLocation.removePerson(this.PersonId)
+		this.LocationId = location.LocationId
+		location.Occupants.push(this)
 	}
 
 	constructor (Nationality_: Country,Location_: Location,Race_: Race, Mother_?: Person,Father_?: Person,Profession_?: Profession, Boss_?: Person, Born_: Date=new Date(), Died_?: Date, FirstName_? : string, LastName_? : string, Sex_: string=ra(genderArray), MilitaryTraining_: number=0,MagicLevel_: number=r(0,2), Wealth_: number=r(10,200),EducationLevel_: number=r(1,6), )
 	{
 		this.PersonId = personCount;
-		this.Nationality = Nationality_;
-		this.Location = Location_;
+		this.NationalityId = Nationality_.CountryId;
+		this.LocationId = Location_.LocationId;
+		Location_.Occupants.push(this);
 		this.Race = Race_;
 		this.Wealth = Wealth_;
 		this.EducationLevel = EducationLevel_;
@@ -636,6 +740,11 @@ export class Profession
 	public MaxPerTown: number;
 	public MaxPerCountry: number;
 
+	public get Key(): String
+	{   
+       return this.Name;
+	}
+
 	constructor (Name_: string,EducationRequirement_: number, MagicRequirement_: number,Pay_: string,MaxPerTown_: number,MaxPerCountry_: number)
 	{
 		this.ProfessionId = professionCount;
@@ -659,6 +768,11 @@ export class PersonInteraction
 	public Relationship: number;
 	public Note : string;
 
+	public get Key(): String
+	{   
+       return this.Note;
+	}
+
 	constructor (Person_: Person,OtherPerson_: Person,Relationship_: number, Note_ : string)
 	{
 		this.InteractionId = personinteractionCount;
@@ -677,6 +791,11 @@ export class PersonEvent
 	public Description: string;
 	public Involved: Array<Person>;
 	public Reactions: Array<PersonInteraction>;
+
+	public get Key(): String
+	{   
+       return this.Description;
+	}
 
 	constructor (Description_: string, Involved_: Array<Person>, Reactions_:Array<PersonInteraction>)
 	{

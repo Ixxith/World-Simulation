@@ -1,4 +1,5 @@
 import express, {Request,Response,Application} from 'express';
+import { generate } from "./worldgen/Generator";
 const app:Application = express();
 var path = require('path');
 
@@ -7,11 +8,12 @@ var path = require('path');
 const publicPath = path.join(__dirname, '../public');
 // Node js is using port 3000/ and when you push to cloud it will use process.env.PORT
 const port = process.env.PORT || 3000;
-app.use(express.static(publicPath));
+app.set('view engine', 'ejs');
 
 /* GET index page */
 app.get("/", (req:Request, res:Response):void => {
-   res.render('index');
+  let out = generate()
+   res.render('index', {output : out});
 });
 
 app.listen(port, () => {
