@@ -20,30 +20,26 @@ const townName : Array<string> = ['Duskmark','Hollowwick','Earthmore','Queens Bu
 const lastName : Array<string> = ['Richmond','Cason','Hale','Duff','Strain','Mays','Yates','Kaye','Flynn','Cobb','Smith','Pham','Call','Friend','Travis','Molina','Free','Cady','Morgan','Kelly','Strain','Zachary','Friend','Nash','Doyle','Roderick','Warren','Goodwin','Locke','Bailey','Bates','Collins','Bricker','Greene','Ward','Molina','Small','Peters','Isaac','Pope','Cooney','Knapp','Wilson','East','Arnold','Reed','Krueger','Nash','Hawkins','Settle','Porter','Nunez','Knight','Mayo','Bunting','Weber','Grey','Reid','Perry','Singh','Knight','Keener','Larson','Berry','Owens','Hill','Blankenship','Prince','Manning','Saxton','Swan','Eaton','Locke','Petersen','Branch','Vargas','Still','Arnold','Tan','Little','Paulson','Krueger','Logan','Mcgee','Mayo','Forbes','Sparks','Harper','Keener','Carr','Franklin','Fitzgerald','Lynn','Ramirez','Wiseman','Larsen','Navarro','Flowers','Clark','Smith','Friend','Small','Bess','Tan','Wade','Thomas','Valentine','Brown','Logan','Palmer','Cooney','Moe','Moss','Willis','Fitzpatrick','Molina','Weber','Warren','Call','Harper','Mace','Blankenship','Sellers','Church','Hill','Bills','Oliver','Goble','Warren','Moss','Hawkins','Smith','Wallis','Manning','Curtin','Moon','Fowler','Valentine','Duncan','Skinner','Larsen','Petersen','Beard','Porter','Beverly','Hodge','Bricker','Vail','Ruiz','Riley','Porter','Williams','Flores','Strain','Acosta','Manning','Vargas','Larson','Roller','Lindsay','Flynn','Prince','Sims','Walsh','Palmer','Willis','Root','Duke','Brock','Starling','Mendoza','Peck','Nall','Prince','Day','Fish','Beard','Hobbs','Christensen','Joy','Roller','Bills','Smallwood','Travis','Sloan','James','Dover','Vargas','Molina','Evans','Littleton','Lim','Harper','Skinner','Robins','Lim','Rhodes','Green','Levy','Sander','Coble','Green','Cooney','Ward','Strain','Hale','Swan','Mcbride','Ruby','Kennedy','Simms','Valentine','Tan','O’brien','Hair','Hook','Johnson','Moss','Bess','Ferguson','Petersen','Snider','Riley','Loving','Baker','Greene','White','Zachary','Zachary','Flores','Simpson','Mcbride','Prince','Levy','Reed','Cox','Church','Cummings','Morgan','Tom','Rhodes','Savage','Lyons','Robins','Cross','Archer','Ferris','Watt','Paulson','Tucker','Hill','Ruth','Foy','Saxton','Paulsen','Duke','Bean','Willis','Kirby','Rodriguez','Stack','Prince','Morgan','Mccormick','Foy','Orr','Gross','Grey','Reed','Sampson','Green','Hawkins','Porter','Wise','Hendrix','Simpson','Badger','Hernandez','Kemp','Hale','Goble','Goodwin','Graham','Mendoza','Fisher','Ferguson','Friend','Oliver','Sierra','Archer','Walsh','Lewis','Orr','West','Wolf','Petersen','Goodwin','Banks','Ball','Keener','Flowers','Skinner','Beverly','Moon','Krueger','Loving','Reid','Sloan','Archer','Watt','Baker','Hogg','Kirby','Free','Cooney','Petersen','Hendrix','Rodriguez','Petersen','Manning','Hodge','Qualls','Heath','Dover','Krueger','Flores','Baker','Combs','Christensen','Maldonado','White','Reid','Duff','Graham','Bauer','Forbes','Duffy','Young','Pearce','Bates','Hendrix','Collins','Harper','Mccoy','Cox','Mcbride','Branch','Fitzpatrick','Travis','Sherman','Louis','Perry','Crane','Badger','Glick','Moe','Wyatt','Washington','O’brien','Foy','Nall','Vega','Guthrie','Foy','Littleton','Davidson','Fitzpatrick','Thomas','Pierce','Garrison','Goble','Manning','Grabowski','Lindsay','Holt','Espinoza','Mccoy','Tucker','Moss','Wallis','Savage','Schmitt','Mcbride','Rodriguez','Nash','Silva','Peacock','Jones','Christensen','Smallwood','Roberts','Sierra','Mosely','Nguyen','Thomas','Couch','Flores','Baker','Still','Archer','Hernandez','English','Bills','Fitzpatrick','Christensen','Curtin','Loy','Schmitt','Stack','Thatcher','Duff','Reed','Mccormick','Davis','Sims','Louis','Logan','Duncan','Hernandez','Cross','Pierce','James','Richmond','Perez','Vines','Fowler','Anderson','Kirby','Lindsay','Geyer','Pierce','Greene','Smith','Head','Law','Heath','Poole','Joyner','Sharp','Healey','Anderson','Badger','Robins','Forbes','Cousins','Still','Sander','Noll','Pond','Joyner','Lyons','Church','Porter','Hamm','Tucker','Mays','Calhoun','Lim','Baker','Lewis','Graham','Moses','Sampson','Loy','Starling','Bates','Lyons','Collins','Ramirez','Sampson','Cox','Colson','Reno','Woody','Savage','Graham','Christensen','Bean','Ball','Bills','Fitzpatrick','Paulsen','Simpson','Hale','Holt','Starling','Porter','Mcgee','Ruth','Gill','Kaye','Doyle','Wiseman','Smallwood','Mccoy','Wiseman','Page','Hodge','Garrison','Noll']
 const firstName : Array<string> = ['Chaeryrr','Bertale','Kalest','Sahack','Skelaughos','Mylat','Goorrir','Cerib','Beannos','Yeiny','Hohon','Joessorm','Qeti','Lorei','Ietuk','Neypon','Gewu','Nuikelm','Closh','Nafen','Hufe','Azuto','Azcer','Douldet','Rodathon','Delildal','Nafie','Burem','Jeendest','Vutaw','Voper','Iwgha','Rakogh','Reno','Bokam','Jeennusk','Guituk','Notu','Dan','Siaghild','Susan','Qauver','Lir','Crorm','Sorm','Tanou','Entald','Deraldet','Nyop','Nyenthell','Mieldaugh','Mozee','Nysaldord','Vet','Lootuk','Yyke','Ijufo','Peysat','Seressagh','Dare','Chaanor','Credia','Ufafo','Udel','Beelard','Deno','Woothack','Isugu','Pinir','Kimyrt','Ukwin','Tuiltach','Jutech','Udar','Verrak','Urys','Nalu','Sahitont','Mem','Snurie','Roudar','Ceetad','Tipo','Tolaront','Ghaaldirt','Wocha','Ijohy','Chau','Wage','Moushelm','Tolorak','Rayingal','Yeyla','Ibito','Vesey','Yistent','Jeph','Pikel','Qaistem','Geinys','Vorathash','Yhtia','Edel','Avor','Tinendym','Jymos','Dockath','Fesam','Afyti','Zeinnade','Snoya','Aikim','Cheengorr','Koler','Morengal','Nalich','Hitage','Oler','Veyen','Jeyrtit','Lim','Drim','Dyninaord','Honur','Ucrys','Keletash','Hines','Sanessok','Tiaangeld','Nysa','Cogod','Rilort','Dyningych','Touphet','Vyyam','Meepheld','Dynerilt','Jode','Keypough','Cheashald','Rakaleonn','Aleir','Radris','Dress','Rasinearr','Rhuki','Linn','Samdyn','Uryn','Qokill','Ekder','Nyissunt','Mir','Voemer','Lyeui','Ubuq','Brend','Hatoi','Wourrit','Sisa','Henal','Wuper','Bon','Seistat','Brofu','Skeli','Afol','Ekal','Honelmund','Iadan','Skelund','Ozep','Tigesh','Clock','Pole','Bucu','Delbur','Aylye','Cheemolt','Engit','Nultar','Rath','Tuphorm','Sahynt','Kusa','Siqu','Poitol','Cluge','Orus','Fito','Qopad','Wyyoo','Ceton','Loringit','Tiau','Nace','Seynenth','Pina','Rynuntel','Kanald','Gepust','Rasadynt','Gunt','Vourtelm','Iaren','Centh','Zatuk','Aughurn','Throsy','Tiaestolt','Jihin','Uskund','Dynay','Daypor','Winisat','Samorand','Zeld','Treve','Radia','Miemi','Foshaugh','Ienes','Meisam','Uisan','Whigou','Goerad','Peylter','Oehat','Houlor','Vis','Fina','Rakuntuch','Oyyro','Tuver','Lahyd','Ficheng','Rakoryrd','Soril','Keladeagh','Nestar','Rasird','Lorarop','Bifyl','Toitol','Coya','Racha','Kety','Jertunt','Rourrir','Dana','Rionaughugh','Sieshina','Wust','Poeker','Heyrest','Cechend','Nyui','Voriruld','Ceufo','Wan','Sulackyll','Sama','Zaykurn','Voradon','Neupald','Dap','Loruskoph','Vorsy','Yzskel','Dath','Alye','Mary','Haighild','Athusk','Pealtor','Osam','Woodan','Polechych','Kinageelt','Oother','Hesh','Threcie','Keellang','Ogha','Teyrtold','Hitof','Clard','Kilto','Gauchor','Cath','Tinengyph','Aihin','Theranal','Garroth','Moibaugh','Qulo','Paussem','Humos','Ibler','Ceylale','Peri','Teundiss','Kyll','Nowin','Rionasald','Tinteng','Fierdorm','Ziph','Lairten','Cheoi','Chryji','Kuku','Iskel','Pofa','Jeitol','Daysi','Kalroth','Naph','Polathonn','Zukij','Tonen','Aroth','Tasie','Nysi','Ukody','Mapald','Ceree','Polu','Qialdough','Chrimo','Uban','Suluntelt','Neheq','Nesachach','Ocafa','Jir','Tasock','Zhick','Tinisann','Rionost','Cerariss','Mupaf','Cieghust','Denusteth','Hinessent','Sanild','Gasty','Feihi','Nine','Ruirrend','Tiaawost','Nuitin','Baykal','Brep','Rayinauph','Contald','Laco','Stymi','Opray','Saulless','Aton','Riallos','Stroka','Rena','Weeltight','Rasae','Winemarr','Tiaissush','Raki','Phurd','Puitia','Therarind','Riasenth','Tehaph','Hiph','Tinineyp','Nolu','Veyge','Pagu','Parr','Ceymo','Wynisser','Qigh','Deltas','Beillough','Utut','Tadut','Turuck','Izad','Pock','Wynaldith','Tipiss','Palda','Zoiki','Lyeanar','Kines','Lasight','Lubay','Sony','Rysarick','Awis','Oder','Sibeld','Banadeend','Honardult','Kodik','Nuca','Yup','Whivou','Cyrod','Burra','Belgo','Kelentald','Oban','Auder','Dovam','Zimeld','Delild','Qauleld','Urug','Qaychum','Recugh','Dereldut','Garcer','Poili','Jaurrir','Kinqe','Nesuskess','Kimme','Nalackil','Byzo','Igagi','Qomyc','Beiray','Risadult','Zacoj','Aqir','Sera','Suika','Wyth','Seini','Eriz','Rako','Hatirem','Opyp','Draissib','Sahathund','Pererinn','Cybim','Bruteu','Tinoldych','Padyn','Yeshe','Zaegu','Suldu','Garustirt','Lussorm','Wyne','Sendom','Bano','Page','Lokui','Ylye','Yuindeng','Ujisi','Tanvor','Blin','Kaufo','Seror','Rysenthant','Radumas','Bald','Aveye','Serwa','Pidiz','Ooche','Lorormarr','Rilathel','Ruirtir','Sanundop','Tinineord','Cerlor','Ustight','Odom','Kaurdiss','Man','Yutur','Nalass','Zos','Zest','Sizu','Craugh','Vesim','Deryn','Umurn','Rakoe','Jeghard','Uhat','Murac','Jorm']
 
-let classSeed = '';
 
-export function changeSeed(newValue : string) {
-	classSeed = newValue;
-}
 
 /**
  * classSeeded random number generator, using [xorshift](https://en.wikipedia.org/wiki/Xorshift).
  * Adapted from [classSeedrandom](https://github.com/davidbau/classSeedrandom).
  * @param seed {string} The seed for random numbers.
  */
- function rng(seed = '') : number {
+ function rng(seed = '') {
     let x = 0
     let y = 0
     let z = 0
     let w = 0
   
-    function next() : number {
+    function next() {
       const t = x ^ (x << 11)
       x =y
       y = z
       z = w
       w ^= ((w >>> 19) ^ t ^ (t >>> 8)) >>> 0
-      return w / 0x100000000
+      return Math.abs(w / 0x100000000)
     }
   
     for (var k = 0; k < seed.length + 63; k++) {
@@ -51,21 +47,31 @@ export function changeSeed(newValue : string) {
       next()
     }
   
-    return Math.abs(next())
+    return next
   }
 
+  let classSeed = '';
+  let rand = rng(classSeed)
+  
+  export function changeSeed(newValue : string) {
+	  classSeed = newValue;
+	  rand = rng(classSeed);
+  }
+  
+  
+
 // Get random values functions
-function ra(array : Array<any>, classSeed : string) : any {
-    return array[Math.floor(rng(classSeed) * array.length)];
+function ra(array : Array<any>) : any {
+    return array[Math.floor(rand() * array.length)];
 };
 
-function r(min : number, max : number, classSeed: string) : number {
-    return Math.floor(rng(classSeed) * (max - min)) + min;
+function r(min : number, max : number) : number {
+    return Math.floor(rand() * (max - min)) + min;
 };
 
 // Returns a float (rounded to specified decimal place)
-function rf(min : number, max : number, classSeed: string, numberOfDecimal : number = 2) : number {
-    return Math.floor(rng(classSeed) * (max - min - 1)) + min + Number(rng(classSeed).toFixed(numberOfDecimal));
+function rf(min : number, max : number, numberOfDecimal : number = 2) : number {
+    return Math.floor(rand() * (max - min - 1)) + min + Number(rand().toFixed(numberOfDecimal));
 };
 
 // Variables for storing counts of objects (used to assign IDs)
@@ -128,7 +134,7 @@ export class Government
        return this.Name;
 	}
 
-	constructor (Country_: Country, Name_: string,Type_: string = ra(governmentTypes, classSeed + governmentCount),Cohesion_: number = r(1,100, classSeed + governmentCount),Power_: number = r(1,100, classSeed + governmentCount),Funds_: number = r(10000,100000, classSeed + governmentCount), )
+	constructor (Country_: Country, Name_: string,Type_: string = ra(governmentTypes),Cohesion_: number = r(1,100),Power_: number = r(1,100),Funds_: number = r(10000,100000), )
 	{
         
 		this.GovernmentId = governmentCount;
@@ -238,14 +244,23 @@ export class Country
 		return enemies
 	}
 
-	constructor (Name_: string=ra(countryName, classSeed+countryCount),Size_: number=r(1,10, classSeed + countryCount),Landlocked_: boolean = ra(truefalseArray, classSeed + countryCount),Government_?: Government,Innovation_: number = r(1,100, classSeed + countryCount),Capital_?: Town)
+	public getTown(townId : number) : Town {
+		for (const town of this.Towns) {
+			if (town.TownId == townId) {
+				return town
+			}
+		}
+		return null
+	}
+
+	constructor (Name_: string=ra(countryName),Size_: number=r(1,10),Landlocked_: boolean = ra(truefalseArray),Government_?: Government,Innovation_: number = r(1,100),Capital_?: Town)
 	{
 		this.CountryId = countryCount;
 		this.Name = Name_;
 		this.Size = Size_;
 		this.Landlocked = Landlocked_;
         if (Government_ == null) {
-            let gType : string = ra(governmentTypes, classSeed + countryCount)
+            let gType : string = ra(governmentTypes)
             this.Government = new Government(this, Name_ + " " + gType, gType)             
         }
         else {
@@ -277,7 +292,7 @@ export class CountryInteraction
        return this.InteractionId.toString();
 	}
 
-	constructor (Country_: Country,OtherCountry_: Country, Relationship_ : number=r(-100,100, classSeed + countryinteractionCount), Status_: string="At Peace",Immigration_: string="Allowed",Trade_: string="Allowed")
+	constructor (Country_: Country,OtherCountry_: Country, Relationship_ : number=r(-100,100), Status_: string="At Peace",Immigration_: string="Allowed",Trade_: string="Allowed")
 	{
 		this.InteractionId = countryinteractionCount;
 		this.Country = Country_;
@@ -388,7 +403,7 @@ export class Race
 		return enemies
 	}
 
-	constructor (Name_: string,Size_: number=r(1,3, classSeed + raceCount),MaxAge_: number=r(50,120, classSeed + raceCount),CombatMultiplier_: number=rf(0,2, classSeed + raceCount),MagicMultiplier_: number=rf(0,2, classSeed + raceCount))
+	constructor (Name_: string,Size_: number=r(1,3),MaxAge_: number=r(50,120),CombatMultiplier_: number=rf(0,2),MagicMultiplier_: number=rf(0,2))
 	{
 		this.RaceId = raceCount;
 		this.Name = Name_;
@@ -418,7 +433,7 @@ export class RaceInteraction
        return this.InteractionId.toString();
 	}
 
-	constructor (Race_: Race,OtherRace_: Race, Relationship_: number = r(-100,100, classSeed + raceinteractionCount), Note_?: string)
+	constructor (Race_: Race,OtherRace_: Race, Relationship_: number = r(-100,100), Note_?: string)
 	{
 		this.InteractionId = raceinteractionCount;
 		this.Race = Race_;
@@ -554,7 +569,7 @@ export class Town extends Location
 
 	}
 
-	constructor (Country_: Country, Biome_: Biome, Military_: Array<Person>=[], Name_: string = ra(townName, classSeed + townCount) ,Food_: number=r(1000,2000, classSeed + townCount),Resources_: number=r(500,2000, classSeed + townCount),Crime_: number=r(1,40, classSeed + townCount), Corruption_: number=r(1,30, classSeed + townCount), Education_: number=r(1,5, classSeed + townCount),Funds_: number=r(1000,5000, classSeed + townCount),Goods_: number=r(100,500, classSeed + townCount))
+	constructor (Country_: Country, Biome_: Biome, Military_: Array<Person>=[], Name_: string = ra(townName) ,Food_: number=r(1000,2000),Resources_: number=r(500,2000),Crime_: number=r(1,40), Corruption_: number=r(1,30), Education_: number=r(1,5),Funds_: number=r(1000,5000),Goods_: number=r(100,500))
 	{
         super();
 		this.TownId = townCount;
@@ -592,7 +607,7 @@ export class Road extends Location
        return this.Name;
 	}
 
-	constructor (Connections_ : Array<Town>,RoadName_?: string,Danger_: number=r(1,10, classSeed + townCount),Condition_: number=r(1,10, classSeed + townCount))
+	constructor (Connections_ : Array<Town>,RoadName_?: string,Danger_: number=r(1,10),Condition_: number=r(1,10))
 	{
 		super();
 		this.RoadId = roadCount;
@@ -739,7 +754,7 @@ export class Person
 		location.Occupants.push(this)
 	}
 
-	constructor (Nationality_: Country,Location_: Location,Race_: Race, Mother_?: Person,Father_?: Person,Profession_?: Profession, Boss_?: Person, Born_: Date=new Date(), Died_?: Date, FirstName_? : string, LastName_? : string, Sex_: string=ra(genderArray, classSeed + personCount), MilitaryTraining_: number=0,MagicLevel_: number=r(0,2, classSeed + personCount), Wealth_: number=r(10,200, classSeed + personCount),EducationLevel_: number=r(1,6, classSeed + personCount), )
+	constructor (Nationality_: Country,Location_: Location,Race_: Race, Mother_?: Person,Father_?: Person,Profession_?: Profession, Boss_?: Person, Born_: Date=new Date(), Died_?: Date, FirstName_? : string, LastName_? : string, Sex_: string=ra(genderArray), MilitaryTraining_: number=0,MagicLevel_: number=r(0,2), Wealth_: number=r(10,200),EducationLevel_: number=r(1,6))
 	{
 		this.PersonId = personCount;
 		this.NationalityId = Nationality_.CountryId;
@@ -758,7 +773,7 @@ export class Person
 		this.Boss = Boss_;
 		this.Profession = Profession_;
 		if (FirstName_ == null) {
-			this.FirstName = ra(firstName, classSeed + personCount)
+			this.FirstName = ra(firstName)
 		} else {
 			this.FirstName = FirstName_
 		}
@@ -771,7 +786,7 @@ export class Person
 
 			}
 			else {
-				this.LastName = ra(lastName, classSeed + personCount)
+				this.LastName = ra(lastName)
 			}
 			
 		} else {
