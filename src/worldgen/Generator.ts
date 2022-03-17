@@ -22,7 +22,7 @@ function generateDataString() : string {
             dataString += "<br/><br/>";
             dataString += printProperties(town);
 
-            dataString += '<button style="addCitizenToTown" id="addcitizens_' + town.TownId + '"> Add 10 citizens </button><br/><br/>';
+            dataString += '<button class="addcitizen" id="addcitizens_' + town.TownId + '"> Add 10 citizens </button><br/><br/>';
             
             for (const person of town.Occupants) {
                 dataString += printProperties(person);
@@ -36,6 +36,7 @@ function generateDataString() : string {
 export function generate(seed : string='seed') : string {
     changeSeed(seed);
     resetCount();
+    countries = [];
     let locationDict : {[key : number] : Location} = {};
     let country = new Country();
     countries.push(country)
@@ -46,34 +47,28 @@ export function generate(seed : string='seed') : string {
         new Person(country, town, ra(races));
     };
 
-    let dataString : string = printProperties(country);
-
-    dataString += "<br/><br/>";
-
-    dataString += printProperties(town);
-
-    dataString += '<button style="addCitizenToTown" id="addcitizens_' + town.TownId + '"> Add 10 citizens </button><br/><br/>';
-    
-    for (const person of town.Occupants) {
-        dataString += printProperties(person);
-        dataString += "<br/><br/>";
-    };	
-    
-    return dataString;
+    return generateDataString();
 };
 
-export function addCitizenToTown(townId : number) {
+export function addCitizenToTown(townId : number) : string {
     let town = null;
-    for (const country of countries) {
-        town = country.getTown(townId);
+    let country = null;
+
+    for (const iCountry of countries) {
+        town = iCountry.getTown(townId);
         if (town != null) {
+            country = iCountry
             break;
         }
     }
 
     if (town != null) {
-        
+        for (let i = 0; i < 10; i++) {
+            new Person(country, town, ra(races));
+        };
     }
+
+    return generateDataString();
 }
 
 

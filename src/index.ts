@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 import express, {Request,Response,Application} from 'express';
-import { generate } from "./worldgen/Generator";
+import { addCitizenToTown, generate } from "./worldgen/Generator";
 const app:Application = express();
 var path = require('path');
 
@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 /* GET index page */
 app.get("/", (req:Request, res:Response):void => {
@@ -20,9 +21,19 @@ app.get("/", (req:Request, res:Response):void => {
 });
 
 app.post("/", (req:Request, res:Response):void => {
-  var seed = req.body.seed || 'seed'
+  let seed = req.body.seed || 'seed'
   let out = generate(seed)
   res.render('index', {output : out, seed: seed});
+});
+
+app.post("/addcitizen", (req:Request, res:Response):void => {
+  let townidstr : string = req.body.townid
+  if (townidstr != undefined || townidstr == '') {
+    let townid : number =  parseInt(townidstr.substring(12))
+    let seed = req.body.seed || 'seed'
+    let out = addCitizenToTown(townid)
+    res.render('index', {output : out, seed: seed});
+  }
 });
 
 
