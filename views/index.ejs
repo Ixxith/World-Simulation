@@ -3,8 +3,14 @@
     <body>
         <!-- <script src="SeedRandom.js"></script> -->
         <!-- <script src="generator.js"></script> -->
+        <div>
+            <form action="/" method="post">
+                <label for="seed">Seed:</label><br>
+                <input type="text" id="seed" name="seed" value="<%- seed %>"><br>           
+                <input type="submit" value="Submit">
+            </form>           
+        </div>
         
-       
         <div>
             <%- output %>
         </div>

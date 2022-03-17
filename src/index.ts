@@ -1,3 +1,4 @@
+import bodyParser from 'body-parser';
 import express, {Request,Response,Application} from 'express';
 import { generate } from "./worldgen/Generator";
 const app:Application = express();
@@ -9,12 +10,21 @@ const publicPath = path.join(__dirname, '../public');
 // Node js is using port 3000/ and when you push to cloud it will use process.env.PORT
 const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* GET index page */
 app.get("/", (req:Request, res:Response):void => {
   let out = generate()
-   res.render('index', {output : out});
+  res.render('index', {output : out, seed: 'seed'});
 });
+
+app.post("/", (req:Request, res:Response):void => {
+  var seed = req.body.seed || 'seed'
+  let out = generate(seed)
+  res.render('index', {output : out, seed: seed});
+});
+
 
 app.listen(port, () => {
   console.log(`Server is up on http://localhost:${port}/`);
